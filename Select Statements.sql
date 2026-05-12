@@ -1,0 +1,2 @@
+SELECT employee_id, first_name, last_name
+FROM Parks_and_Recreation.employee_demographics;
