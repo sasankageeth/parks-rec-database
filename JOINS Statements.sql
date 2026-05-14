@@ -128,3 +128,25 @@ SELECT sal1.employee_id,
 FROM employee_salary AS sal1
 JOIN employee_salary AS sal2
     ON sal1.employee_id != sal2.employee_id;
+    
+    
+    
+    
+-- =========================================================
+-- QUESTION
+-- Show each department name along with:
+-- total employees in that department
+-- average salary in that department
+-- Only include departments where average salary is greater than 50000
+-- Sort results by average salary in descending order
+-- =========================================================
+
+SELECT pd.department_name,
+       COUNT(sal.employee_id) AS total_employees,
+       AVG(sal.salary) AS avg_salary
+FROM parks_departments AS pd
+LEFT OUTER JOIN employee_salary AS sal
+    ON pd.department_id = sal.dept_id
+GROUP BY pd.department_name
+HAVING avg_salary > 50000
+ORDER BY avg_salary DESC;
