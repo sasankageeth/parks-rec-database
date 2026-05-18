@@ -150,3 +150,21 @@ LEFT OUTER JOIN employee_salary AS sal
 GROUP BY pd.department_name
 HAVING avg_salary > 50000
 ORDER BY avg_salary DESC;
+
+
+
+select * from employee_demographics;
+
+select * from employee_salary;
+
+select * from parks_departments;
+
+
+-- Join all the three tables in the database
+SELECT	*
+FROM employee_salary AS sal
+LEFT OUTER JOIN employee_demographics AS dem
+	ON sal.employee_id = dem.employee_id
+LEFT OUTER JOIN parks_departments AS pd
+	ON sal.dept_id = pd.department_id;
+
